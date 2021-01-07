@@ -1,7 +1,7 @@
 <template>
   <div id="add-emp">
     Add Employee page
-    <go-btn goto="/here" value="test"></go-btn>
+    <go-btn value="test"></go-btn>
   </div>
 </template>
 
