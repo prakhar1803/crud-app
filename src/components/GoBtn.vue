@@ -1,12 +1,38 @@
 <template>
-    <a :href="goto" class="go-btn">{{ value }}</a>
+    <a :href="goto" class="go-btn"
+       :class="{ 'bg-change-red' : getred, 'bg-change-green' : getgreen, 'bg-change-blue' : getblue }"
+    >{{ value }}</a>
 </template>
 
 <script>
 export default {
     props: {
-        value: String,
-        goto: String
+        value: {
+            type: String,
+            default: "Submit"
+        },
+        goto: String,
+        color: {
+            type: String,
+            default: "blue"
+        }
+    },
+    computed: {
+        getred() {
+            if(this.color == "red")
+                return true
+            return false
+        },
+        getgreen() {
+            if(this.color == "green")
+                return true
+            return false
+        },
+        getblue() {
+            if(this.color == "blue")
+                return true
+            return false
+        }
     }
 }
 </script>
@@ -15,19 +41,35 @@ export default {
     .go-btn {
         margin: 10px;
         padding: 5px 20px;
-        min-height: 40px;
+        max-height: 40px;
         min-width: 60px;
         font-size: 1em;
-        background: rgb(22, 179, 48);
-        color: black;
+        color: rgb(255, 255, 255);
         text-transform: uppercase;
-        border: 2px solid green;
-        box-shadow: 0px 0px 3px 1px rgb(127, 230, 127);
-        transition: .2s;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 5px;
+        position: relative;
+        box-shadow: 2px 2px 2px 0px rgba(46, 46, 46, 0.7);
+        top: -2px;
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
     }
     .go-btn:hover {
         cursor: pointer;
-        box-shadow: 0px 0px 5px 3px rgb(127, 230, 127);
-        transition: .2s;
+    }
+    .go-btn:active{
+        top: 0;
+        box-shadow: none;
+    }
+    .bg-change-green {
+        background: rgb(22, 179, 48);
+    }
+    .bg-change-red {
+        background: rgb(211, 34, 34);
+    }
+    .bg-change-blue {
+        background: rgb(56, 107, 247);
     }
 </style>

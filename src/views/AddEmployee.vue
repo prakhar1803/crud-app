@@ -1,19 +1,31 @@
 <template>
-  <div id="add-emp">
-    Add Employee page
-    <go-btn value="test"></go-btn>
+  <div id="add-emp" class="flex f-column f-aic">
+    <form-card
+      :fields="fields"
+      btntext="insert"
+    ></form-card>
   </div>
 </template>
 
 <script>
-import GoBtn from '../components/GoBtn.vue'
+import FormCard from '../components/FormCard'
+
 export default {
   components: {
-    GoBtn
+    FormCard
+  },
+  data() {
+    return {
+      fields: [
+        "Employee ID",
+        "First Name",
+        "Last Name"
+      ]
+    }
   }
 }
 </script>
 
 <style>
-
+  
 </style>
