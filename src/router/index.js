@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import AddClient from "../views/AddClient"
+import AddEmployee from "../views/AddEmployee"
 
 Vue.use(VueRouter);
 
@@ -19,7 +20,7 @@ const routes = [
   {
     path: "/addemployee",
     name: "AddEmployee",
-    component: AddClient
+    component: AddEmployee
   }
 ];
 
