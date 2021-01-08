@@ -2,7 +2,9 @@
   <div id="add-emp" class="flex f-column f-aic">
     <form-card
       :fields="fields"
-      btntext="insert"
+      btntext="add employee"
+      width="250px"
+      querytype="insert"
     ></form-card>
   </div>
 </template>

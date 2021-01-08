@@ -1,6 +1,7 @@
 <template>
     <a :href="goto" class="go-btn"
        :class="{ 'bg-change-red' : getred, 'bg-change-green' : getgreen, 'bg-change-blue' : getblue }"
+       @click="met"
     >{{ value }}</a>
 </template>
 
@@ -15,6 +16,10 @@ export default {
         color: {
             type: String,
             default: "blue"
+        },
+        met: {
+            type: Function,
+            default: () => {}
         }
     },
     computed: {

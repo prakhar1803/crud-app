@@ -2,6 +2,8 @@
   <input class="input-field" 
         :type="datatype" 
         :placeholder="holder"
+        v-model="val"
+        @keyup ="emitToParent"
   >
 </template>
 
@@ -14,6 +16,23 @@ export default {
         },
         holder: {
             type: String
+        }
+    },
+    data() {
+        return {
+            val: ''
+        }
+    },
+    methods: {
+        emitToParent(event) {
+            if (this.timer) {
+                clearTimeout(this.timer);
+                this.timer = null;
+            }
+            this.timer = setTimeout(() => {
+                // your code
+                this.$emit('changeVal',[this.holder, this.val])
+            }, 500);
         }
     }
 }
