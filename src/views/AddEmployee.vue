@@ -1,5 +1,5 @@
 <template>
-  <div id="add-emp" class="flex f-column f-aic">
+  <div id="add-emp" class="router-container flex f-column f-aic f-jcc">
     <form-card
       :fields="fields"
       btntext="add employee"
@@ -21,7 +21,9 @@ export default {
       fields: [
         "Employee ID",
         "First Name",
-        "Last Name"
+        "Last Name",
+        "Branch ID",
+        "Salary"
       ]
     }
   }

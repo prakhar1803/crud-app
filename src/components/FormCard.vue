@@ -13,6 +13,7 @@
 <script>
 import GoBtn from './GoBtn'
 import InputField from './InputField'
+import CheckService from '../services/CheckService'
 
 export default {
     components: {
@@ -34,24 +35,15 @@ export default {
             sqlquery: ''
         }
     },
-    computed: {
-        getData() {
-            let data = [];
-            return data
-        }
-    },
     methods: {
-        gobtnClicked() {
-            console.log(this.forminfo)
-            if (this.querytype == 'insert') {
-                this.sqlquery = `INSERT INTO employee VALUES (
-                    ${this.forminfo[this.fields[0]]},
-                    ${this.forminfo[this.fields[1]]},
-                    ${this.forminfo[this.fields[2]]},
-                );`
-                console.log(this.sqlquery)
-            }
-            
+        async gobtnClicked() {
+            const res = await CheckService.register({
+                ...this.forminfo
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            console.log(res.data.message)
         },
         updateVal(eventData) {
             this.forminfo[eventData[0]] = eventData[1]

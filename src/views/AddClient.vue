@@ -1,5 +1,5 @@
 <template>
-  <div class="addclient flex f-column f-aic">
+  <div class="addclient router-container flex f-column f-aic f-jcc">
     <form-card
       :fields="clientdata"
       btntext="add client"
